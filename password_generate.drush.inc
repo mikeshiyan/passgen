@@ -14,10 +14,13 @@
  */
 function password_generate_drush_command() {
   $items['password-generate'] = array(
-    'description' => 'Generates a password',
+    'description' => 'Generates a password.',
     'aliases' => array('passgen'),
     'arguments' => array(
-      'length' => '(optional) Password length. Defaults to 12.',
+      'length' => '(optional) Password length. Defaults to 20.',
+    ),
+    'examples' => array(
+      'drush password-generate 10' => 'Generate a password 10 characters long.',
     ),
     'bootstrap' => DRUSH_BOOTSTRAP_NONE,
   );
@@ -28,17 +31,16 @@ function password_generate_drush_command() {
 /**
  * Generates a password.
  */
-function drush_password_generate($length = 12) {
-  $str = 'abcdefghijklmnopqrstuvwxyz';
-  $str .= strtoupper($str);
-  $str .= '0123456789~!?@#$%^&*()-_+=;:.,<>[]{}\|/';
+function drush_password_generate($length = 20) {
+  $password = '';
 
-  $pass = '';
-  while (strlen($pass) < $length) {
-    $pass .= $str[mt_rand(0, strlen($str) - 1)];
+  $characters = 'abcdefghijklmnopqrstuvwxyz';
+  $characters .= strtoupper($characters);
+  $characters .= '0123456789~!?@#$%^&*()-_+=;:.,<>[]{}\|/';
+
+  while (strlen($password) < $length) {
+    $password .= $characters[mt_rand(0, strlen($characters) - 1)];
   }
 
-  drush_print($pass, 2);
-
-  return TRUE;
+  return $password;
 }
