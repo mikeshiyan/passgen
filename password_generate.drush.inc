@@ -34,9 +34,12 @@ function password_generate_drush_command() {
 function drush_password_generate($length = 20) {
   $password = '';
 
-  $characters = 'abcdefghijklmnopqrstuvwxyz';
-  $characters .= strtoupper($characters);
-  $characters .= '0123456789~!?@#$%^&*()-_+=;:.,<>[]{}\|/';
+  // Allowable characters for the password. The number 0 and the letter 'O' have
+  // been removed to avoid confusion between the two. The same is true for 'I',
+  // 1, 'l' and '|'.
+  $characters = 'abcdefghijkmnopqrstuvwxyz';
+  $characters .= 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  $characters .= '23456789~!?@#$%^&*()-_+=;:.,<>[]{}\/';
 
   while (strlen($password) < $length) {
     $password .= $characters[mt_rand(0, strlen($characters) - 1)];
