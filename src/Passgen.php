@@ -17,6 +17,9 @@ class Passgen {
    *
    * @return string
    *   Generated password.
+   *
+   * @throws \Exception
+   *   If an appropriate source of randomness cannot be found.
    */
   public function generate(int $length = 20): string {
     $password = '';
@@ -24,12 +27,13 @@ class Passgen {
     // Allowable characters for the password. The number 0 and the letter 'O'
     // have been removed to avoid confusion between the two. The same is true
     // for 'I', 1, 'l' and '|'.
-    $characters = 'abcdefghijkmnopqrstuvwxyz';
-    $characters .= 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-    $characters .= '23456789~!?@#$%^&*()-_+=;:.,<>[]{}\/';
+    $characters = '23456789~!?@#$%^&*()-_+=;:.,<>[]{}\/'
+      . 'abcdefghijkmnopqrstuvwxyz'
+      . 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+    $max_character_pos = strlen($characters) - 1;
 
-    while (strlen($password) < $length) {
-      $password .= $characters[mt_rand(0, strlen($characters) - 1)];
+    while ($length-- > 0) {
+      $password .= $characters[random_int(0, $max_character_pos)];
     }
 
     return $password;
