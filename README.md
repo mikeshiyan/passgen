@@ -16,7 +16,7 @@ composer global require --optimize-autoloader shiyan/passgen
 Make sure that the `COMPOSER_HOME/vendor/bin` dir is in your `PATH` env var.
 More info in the composer help: `composer global -h`
 
-If you have the [CGR](https://github.com/consolidation/cgr) installed, than run
+If you have the [CGR](https://github.com/consolidation/cgr) installed, then run
 the following command instead of the one above:
 
 ```
