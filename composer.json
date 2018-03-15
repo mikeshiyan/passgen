@@ -25,5 +25,8 @@
             "name": "Mike Shiyan",
             "homepage": "https://github.com/mikeshiyan"
         }
-    ]
+    ],
+    "suggest": {
+        "consolidation/cgr": "Isolates the composer library from other globally-installed tools"
+    }
 }
