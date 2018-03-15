@@ -1,0 +1,29 @@
+{
+    "name": "shiyan/passgen",
+    "description": "Password generating Symfony Console application.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "consolidation/annotated-command": "^2.8.3",
+        "symfony/console": "^4.0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shiyan\\Passgen\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/passgen"
+    ],
+    "keywords": ["password", "generator", "php", "oop", "console"],
+    "support": {
+        "source": "https://github.com/mikeshiyan/passgen",
+        "issues": "https://github.com/mikeshiyan/passgen/issues"
+    },
+    "authors": [
+        {
+            "name": "Mike Shiyan",
+            "homepage": "https://github.com/mikeshiyan"
+        }
+    ]
+}

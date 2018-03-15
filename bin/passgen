@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * @file
+ * The passgen cli command.
+ */
+
+use Consolidation\AnnotatedCommand\AnnotatedCommandFactory;
+use Shiyan\Passgen\Passgen;
+use Symfony\Component\Console\Application;
+
+$autoloaders[] = __DIR__ . '/../vendor/autoload.php';
+$autoloaders[] = __DIR__ . '/../../../autoload.php';
+
+foreach ($autoloaders as $file) {
+  if (file_exists($file)) {
+    require_once $file;
+    break;
+  }
+}
+
+$command = new Passgen();
+$factory = new AnnotatedCommandFactory();
+$app = new Application('Password Generator');
+
+$app->addCommands($factory->createCommandsFromClass($command));
+$app->setDefaultCommand('passgen', TRUE);
+$app->run();
