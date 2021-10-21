@@ -4,7 +4,7 @@ A command-line utility for random password generation.
 
 ## Requirements
 
-* PHP &ge; 7.1
+* PHP &ge; 8.0
 * [Composer](https://getcomposer.org)
 
 ## Installation

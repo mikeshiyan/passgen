@@ -3,9 +3,8 @@
     "description": "Password generating Symfony Console application.",
     "license": "MIT",
     "require": {
-        "php": "^7.1",
-        "consolidation/annotated-command": "^2.8.3",
-        "symfony/console": "^4.0.6"
+        "php": "^8.0",
+        "consolidation/annotated-command": "^4.4"
     },
     "autoload": {
         "psr-4": {
